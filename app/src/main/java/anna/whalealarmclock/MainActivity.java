@@ -7,18 +7,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -75,18 +78,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         // create an onClick listener to start the alarm
         alarm_on.setOnClickListener(new View.OnClickListener() {
-            @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
+            @TargetApi(Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
 
                 // setting calendar instance with the hour and minute that we picked
                 // on the time picker
-                calendar.set(Calendar.HOUR_OF_DAY, alarm_timepicker.getCurrentHour());
-                calendar.set(Calendar.MINUTE, alarm_timepicker.getCurrentMinute());
+                calendar.set(Calendar.HOUR_OF_DAY, alarm_timepicker.getHour());
+                calendar.set(Calendar.MINUTE, alarm_timepicker.getMinute());
 
                 // get the int values of the hour and minute
-                int hour = alarm_timepicker.getCurrentHour();
-                int minute = alarm_timepicker.getCurrentMinute();
+                int hour = alarm_timepicker.getHour();
+                int minute = alarm_timepicker.getMinute();
 
                 // convert the int values to strings
                 String hour_string = String.valueOf(hour);

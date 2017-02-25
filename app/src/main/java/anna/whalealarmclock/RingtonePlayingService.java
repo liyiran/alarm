@@ -27,7 +27,7 @@ public class RingtonePlayingService extends Service {
         return null;
     }
 
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.i("LocalService", "Received start id " + startId + ": " + intent);
@@ -59,7 +59,7 @@ public class RingtonePlayingService extends Service {
                 .setSmallIcon(R.drawable.ic_action_call)
                 .setContentIntent(pending_intent_main_activity)
                 .setAutoCancel(true)
-                .getNotification();
+                .build();
 
 
 
